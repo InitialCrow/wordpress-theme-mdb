@@ -1,0 +1,278 @@
+@media screen and (max-width: 1570px){
+  .carte .cover{
+    width: 26%;
+  }
+
+}
+@media screen and (max-width: 1420px){
+  .head-sec .show-galerie {
+    right: 4%;
+  }
+  .find .find-sec.map-sec{
+    width: 50%;
+  }
+  .find .find-sec.findus{
+    width: 40%;
+  }
+  .find .map{
+    width: 65%!important
+  }
+  .hour .placeholder{
+    width :  20%;
+  }
+  .hour .hour-sec{
+    width: 40%;
+  }
+}
+@media screen and (max-width: 1380px){
+  .main-section .welcome-b.work{
+    margin-left: 10%;
+  }
+  .main-section .welcome-b{
+    width: 90%;
+  }
+  .carte .carte-b{
+    width: 95%;
+  }
+  .news .fb-content .wrap-content {
+    width: 95%;
+  }
+
+}
+
+@media screen and (max-width: 1280px){
+  .head-sec .show-galerie{
+    right: 0;
+  }
+  .main-nav .nav-list .main-nav-item{
+    width: 13%;
+  }
+  .find .find-sec.findus{
+    width: 50%;
+  }
+  .find .find-sec.map-sec{
+    width: 40%;
+  }
+  .find .map{
+    width: 80%!important;
+  }
+  .hour .hour-sec {
+    width: 45%;
+  }
+  .hour .placeholder{
+    width: 10%;
+  }
+
+}
+
+@media screen and (max-width: 1100px){
+
+  .hour .placeholder{
+    width :  2%;
+  }
+  .hour .hour-sec{
+    width: 49%;
+  }
+  .carte .carte-b{
+    width: 97%;
+  }
+}
+
+@media screen and (max-width: 1060px){
+
+  .main-section .welcome-b.work{
+    margin-left: 0;
+  }
+  .main-section .welcome-b{
+    width: 100%;
+  }
+  .main-section .welcome-b .cover{
+    width: 33%;
+  }
+  .main-section .welcome-b .info{
+    width: 67%;
+  }
+  .carte .carteb-bg{
+    width: 100%;
+    margin-right: 0;
+  }
+  .carte .carteb-bg:after{
+    display: none
+  }
+  .carte .carte-b{
+    width: 100%;
+    margin: 4em 0;
+  }
+  .carte .cover{
+    display: none;
+  }
+  .news .fb-content .profile-img{
+    display: none;
+  }
+
+}
+
+
+@media screen and (max-width: 1050px){
+   .head-sec .show-galerie {
+    right: 38%;
+    top: -35px;
+  }
+  .news .fb-content .info{
+    width: 100%;
+    padding-left: 0;
+  }
+  .find .find-sec.map-sec{
+    display: block;
+    width: 90%;
+    margin :  0 auto;
+    padding-left: 0;
+  }
+  .main-section.carte{
+   padding-bottom:0
+  }
+  .find .map{
+    width: 100%!important;
+    height: 395px!important;
+  }
+  .find .find-sec.findus{
+    width: 80%;
+    margin:  0 auto;
+    display: block;
+  }
+  .main-section.hour{
+    padding-bottom :  6em;
+  }
+  .hour .hour-sec{
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    padding-bottom:0;
+  }
+  .hour .placeholder{
+    width: 20%;
+    display: block;
+    margin:  0 auto;
+    height: 140px;
+
+  }
+
+}
+
+@media screen and (max-width: 970px){
+
+  .main-nav .nav-list .main-nav-item .link-1{
+    margin: 0;
+  }
+
+
+
+}
+
+@media screen and (max-width: 800px){
+
+  .main-section .welcome-b .cover{
+    display: none;
+  }
+  .main-section .welcome-b .info{
+    width: 100%;
+    padding-bottom :  3em;
+  }
+  .main-section .welcome-b .b-content{
+    width: 95%;
+  }
+
+
+
+}
+@media screen and (max-width: 800px){
+
+  .head-sec .show-galerie {
+    right: 34%;
+  }
+  .main-nav .nav-list{
+    display: none;
+  }
+  .main-nav .nav-list{
+    display: none;
+  }
+  .main-nav .nav-burger{
+    display: block;
+  }
+
+
+}
+@media screen and (max-width: 600px){
+
+  .head-sec .show-galerie {
+    right: 27%;
+
+  }
+  .find .find-sec.findus{
+    width: 95%;
+  }
+  .hour .hour-sec{
+    width: 95%;
+  }
+  .hour .hour-sec .wrap-hour-info{
+    width: 95%;
+  }
+  .main-footer .footer-sec{
+    width: 100%;
+  }
+  .main-footer .footer-sec2{
+    display: none;
+  }
+
+  .find .contact-list{
+    width: 90%;
+  }
+  .status{
+    width: 100%;
+    text-align: center
+  }
+  .hour .status{
+    text-align: left;
+  }
+}
+
+
+@media screen and (max-width: 490px){
+  .head-sec .show-galerie{
+    right: 18%;
+  }
+  .head-sec .main-slogan .toc-bg{
+    width: 7%;
+    margin: 0;
+  }
+  .find .contact-list .contact-list-item{
+    padding-left: 18%;
+  }
+}
+
+@media screen and (max-width: 435px){
+  .head-sec .show-galerie{
+    top: -50px;
+  }
+  .head-sec .main-slogan .toc-bg{
+    display: none;
+  }
+  .find .map-info{
+    padding-left: 0;
+  }
+  .hour .warning-bg{
+    width: 7%;
+  }
+  .hour .warning{
+    width: 83%;
+  }
+
+}
+
+@media screen and (max-width: 350px){
+
+  .find .pos-bg{
+    display: block;
+  }
+
+}
