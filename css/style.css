@@ -982,6 +982,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   color: white;
   display: inline-block;
   padding: 0.5em 1.5em;
+  text-decoration :  none;
 }
 
 /*gal*/

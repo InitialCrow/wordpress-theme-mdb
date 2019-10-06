@@ -40,10 +40,10 @@
       --><p class="warning"><?php echo $blocks['section5 descriptif2']['data']; ?></p>
         <div class="wrap-btn">
 
-          <button type="button" class="reserve-btn">
+          <a href="mailto:contact@lamaisonduboeuf.fr?subject=Question pour la maison du boeuf" class="reserve-btn">
 
             <?php echo $blocks['section5 btn1']['data']; ?>
-          </button>
+          </a>
         </div>
       </div>
     </div>
