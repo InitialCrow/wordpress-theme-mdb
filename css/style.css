@@ -862,7 +862,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   margin : 0 auto;
 }
 .find .contact-list .contact-list-item{
-  padding: 2em 0;
+  padding: 1.2em 0;
 }
 
 
@@ -871,6 +871,11 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 }
 .find .contact-list-item.phone-bg{
   background: url("../assets/phone.png") no-repeat 0 50%;
+
+
+}
+.find .contact-list-item.email-address-bg{
+  background: url("../assets/address.png") no-repeat 0 50%;
 
 
 }

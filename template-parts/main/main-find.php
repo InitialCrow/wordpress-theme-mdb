@@ -35,6 +35,9 @@
           else if($i ==1){
             $classLi = "contact-list-item email-bg";
           }
+          else if($i ==2){
+            $classLi = "contact-list-item email-address-bg";
+          }
           else{
             $classLi = "contact-list-item";
           }
