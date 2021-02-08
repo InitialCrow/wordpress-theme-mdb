@@ -31,13 +31,7 @@
             </div><!--
          --><div class="publish-func">
               <ul class="publish-func-list" data-post-id="<?php echo $po->ID?>">
-                <?php
-                      if($_SESSION['can_like'][$po->ID] !== true){
-                        $class="clickable-like";
-                      }
-                ?>
-                <li data-like="1" class="like-bg <?php echo $class ?>"><?php echo $po->likes->ulike?$po->likes->ulike : '0' ?></li><!--
-             --><li data-like="0" class="unlike-bg <?php echo $class ?>"><?php echo $po->likes->udislike?$po->likes->udislike : '0' ?></li>
+                
               </ul>
             </div>
           </li>

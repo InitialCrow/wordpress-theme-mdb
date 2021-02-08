@@ -8,7 +8,7 @@
         tiles_type:"justified"
       });
       app.initSlide()
-      app.like(".clickable-like", ".publish-func-list")
+      //app.like(".clickable-like", ".publish-func-list")
       app.initScrollAnim(".animA")
 
     })
