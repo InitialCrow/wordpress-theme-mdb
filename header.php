@@ -29,11 +29,23 @@ do_action('get_hours',$post);
 <div class="wrapper">
 	<div id="page" class="site">
 		<header id="masthead">
-			<nav class="main-nav" id="main-nav">
-				<?php get_template_part( 'template-parts/header/header', 'nav' );?>
-			</nav>
-			<section class="head-sec border-title" <?php echo $post->blocks["header image fond"]['innerHTML']; ?>>
-			<?php get_template_part( 'template-parts/header/header', 'branding' );?>
-			</section>
+
+			
+			<?php if($post->post_title!="Order"): ?>
+				<nav class="main-nav" id="main-nav">
+					<?php get_template_part( 'template-parts/header/header', 'nav' );?>
+				</nav>
+			<?php endif ?>
+			<?php if($post->post_title=="Order"): ?>
+				<nav class="main-nav nav-order border-title" id="main-nav">
+					<?php get_template_part( 'template-parts/order/header/header', 'nav' );?>
+				</nav>
+			<?php endif ?>
+		
+			<?php if($post->post_title!="Order"): ?>
+				<section class="head-sec border-title" <?php echo $post->blocks["header image fond"]['innerHTML']; ?>>
+				<?php get_template_part( 'template-parts/header/header', 'branding' )?>
+				</section>
+			<?php endif?>
 		</header><!-- #masthead -->
 		<div id="content" class="site-content">

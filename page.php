@@ -19,7 +19,7 @@ get_header();
       /* Start the Loop */
       while ( have_posts() ) :
         the_post();
-
+      
         if($post->post_name =="home"){
           get_template_part( 'template-parts/main/main','welcome');
           get_template_part( 'template-parts/main/main','cartes');
@@ -27,6 +27,11 @@ get_header();
           get_template_part( 'template-parts/main/main','find');
           get_template_part( 'template-parts/main/main','hour');
           get_template_part( 'template-parts/main/main','gal');
+        }
+        else if($post->post_title == "Order" ){
+
+          get_template_part( 'template-parts/order/main/main','main');
+          get_template_part( 'template-parts/order/main/main','recap');
         }
         else if($post->post_name == "politique-de-confidentialite" ){
           get_template_part( 'template-parts/policy/policy','policy');

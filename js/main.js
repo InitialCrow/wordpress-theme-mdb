@@ -10,17 +10,190 @@
       app.initSlide()
       //app.like(".clickable-like", ".publish-func-list")
       app.initScrollAnim(".animA")
+      app.changeProductQty()
+      app.initOrder()
+      app.initCart()
+      app.removeItemCart()
+      app.postOrder()
+      app.updateItemCart()
+      
+    })
+  },
+  postOrder:function(){
+    $('.order-form').on('submit',function(evt){
+      evt.preventDefault()
+      var formatedData = new FormData($('.order-form')[0])
+      formatedData.append("cart",sessionStorage.getItem("cart"))
+      $.ajax({
+        type: "POST",
+        url: $(this).attr('action'),
+        data: formatedData,
+        dataType:"JSON",
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(data, http){
+          console.log(data)
+        },
+      });
 
+    })
+  },
+  changeProductQty:function(){
+    
+
+    $(".fa-plus").on("click",function(evt){
+      $card = $(evt.target.offsetParent)
+      var price = $card.find(".amount").text().replace(",",".")
+      if($card[0].base_price == undefined){
+        $card[0].base_price = price
+      }
+
+    
+      var _num = parseInt($card.find(".number").text()) + 1;
+    
+      $card.find(".number").text(_num);
+      $card.find(".amount").text((_num*$card[0].base_price).toFixed(2).replace(".",","));
+    });
+
+    $(".fa-minus").on("click",function(evt){
+      $card = $(evt.target.offsetParent)
+      var price = $card[0].base_price
+      var _num = parseInt($card.find(".number").text()) - 1;
+      
+      if(_num > 0){
+
+        $card.find(".number").text(_num);
+     
+        $card.find(".amount").text((_num*price).toFixed(2).replace(".",","));
+      }
+    });
+  },
+  initCart:function(){
+
+    var cart = JSON.parse(sessionStorage.getItem('cart'))||{}
+
+    var $wrapp = $('.cartWrap')
+    var tog = 0
+    var banner = "odd"
+    var total = 0;
+    $wrapp.empty()
+    var keys = Object.keys(cart)
+    for(var i =0; i<keys.length; i++){
+      var k = keys[i]
+   
+      total+=parseFloat(cart[k].price)
+      if(tog == 0 ){
+        banner = "odd"
+        tog=1
+      
+      }
+      else{
+        banner = "even"
+        tog = 0
+      }
+
+      $wrapp.append('<li class="items '+banner+'"><div class="infoWrap"><div class="cartSection"><img src="'+cart[k].img+'" alt="" class="itemImg" /><h3>'+cart[k].name+'</h3><p> <input type="text"  class="qty qty-c" placeholder="'+cart[k].qty+'"/> x '+cart[k].base_price.toString().replace(".",",")+' €</p><p class="stockStatus"> En stock</p></div><div class="prodTotal cartSection"><p>'+cart[k].price.toString().replace('.',',')+' €</p></div><div class="cartSection removeWrap"><a href="#" class="remove">x</a></div></div><input type="hidden" class="product_id" value="'+cart[k].id+'"></li>')
+    }
+    $(".final .value").text((total.toFixed(2)+" €").replace('.',','))
+    app.removeItemCart()
+    app.updateItemCart()
+  },
+  removeItemCart :function(){
+    $('a.remove').off()
+    $('a.remove').on('click',function(evt){
+      evt.preventDefault();
+      var cart = JSON.parse(sessionStorage.getItem('cart'))||{}
+      var $product =  $(this).parent().parent().parent()
+
+      $product.hide( 400 );
+      var id= $product.find('.product_id').val()
+      
+      delete cart["p_"+id]
+      
+      sessionStorage.setItem('cart',JSON.stringify(cart))
+     
+    })
+  },
+  updateItemCart :function(){
+    $('.qty-c').off()
+    $('.qty-c').on('blur',function(evt){
+      evt.preventDefault();
+      if(evt.target.value ==""){
+        return
+      }
+
+      var cart = JSON.parse(sessionStorage.getItem('cart'))||{}
+      var $product =  $(this).parent().parent().parent().parent()
+    
+      var id= $product.find('.product_id').val()
+      
+      cart["p_"+id].qty = parseInt(evt.target.value)
+      cart["p_"+id].price = (parseFloat(cart["p_"+id].base_price)*cart["p_"+id].qty).toFixed(2)
+      sessionStorage.setItem('cart',JSON.stringify(cart))
+      app.initCart()
+    })
+  },
+  refreshCart : function(){
+
+    app.initCart()
+  },
+  initOrder: function(){
+    var cart = {}
+    
+   
+    $('.ip-add-cart').on('click',function(evt){
+      if(sessionStorage.getItem('cart')){
+        cart = JSON.parse(sessionStorage.getItem('cart'))
+      }
+      var $card = $(evt.target.offsetParent)
+      var price = $(evt.target.offsetParent).find(".amount").text().replace(',',".")
+      var name = $(evt.target.offsetParent).find("h3").text()
+      var img = $(evt.target.offsetParent).find(".img-fruit").attr("src")
+      var qty = $(evt.target.offsetParent).find(".number").text()
+      var id = $(evt.target.offsetParent).find(".product_id").val()
+      
+      var product = {}
+      product= {
+        id:id,
+        price : parseFloat(price),
+        name :name,
+        img : img,
+        qty :parseInt(qty),
+        base_price : (price/qty).toFixed(2)
+      }
+      if(cart["p_"+id] !== undefined){
+     
+        cart["p_"+id].price = parseFloat(cart["p_"+id].price)
+        cart["p_"+id].price += product.price
+        cart["p_"+id].qty += product.qty
+        cart["p_"+id].price = cart["p_"+id].price.toFixed(2)
+     
+
+      }
+      else{
+        cart["p_"+id]=product
+
+      }
+    
+      sessionStorage.setItem('cart', JSON.stringify(cart));
+      app.refreshCart()
+    
+      
     })
   },
   initScrollAnim : function(classN){
     $(classN).on('click', function(evt){
+     var target = $(this).attr('href');
+     if(target[0]!=="#"){
+      return
+     }
      // bloquer le comportement par défaut: on ne rechargera pas la page
      evt.preventDefault();
      // enregistre la valeur de l'attribut  href dans la variable target
-     var target = $(this).attr('href');
-           /* le sélecteur $(html, body) permet de corriger un bug sur chrome
-           et safari (webkit) */
+
+     /* le sélecteur $(html, body) permet de corriger un bug sur chrome
+     et safari (webkit) */
      $('html, body')
      // on arrête toutes les animations en cours
      .stop()
@@ -28,10 +201,6 @@
       notre ancre target */
      .animate({scrollTop: $(target).offset().top}, 1000 );
     });
-
-
-
-
   },
   like : function(classN, class2){
     var $datas = $(class2)

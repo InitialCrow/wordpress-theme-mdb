@@ -3,7 +3,7 @@
 /*
   Template Name: branding
 */
-
+  include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
   $blocks = $post->blocks;
 
 ?>
@@ -11,7 +11,9 @@
     <div class="title-wrap">
       <h1 class="main-title"><?php echo $blocks['logo principal']['innerHTML']; ?></h1>
       <a class="show-galerie animA" href="#gal">Voir la Galerie</a>
-
+      <?php if(is_plugin_active('wordpress-plugin-mdb-order/product.php')):?>
+        <a class="show-buy" href="/commander">Commander</a>
+      <?php endif ?>
     </div>
     <div class="main-slogan"><span class="toc-bg"></span><?php echo $blocks["slogan"]['innerHTML']; ?><span class="toc-bg"></span></div>
     <ul class="social-list">

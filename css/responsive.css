@@ -8,6 +8,9 @@
   .head-sec .show-galerie {
     right: 4%;
   }
+  .head-sec .show-buy {
+    left: 4%;
+  }
   .find .find-sec.map-sec{
     width: 50%;
   }
@@ -25,6 +28,7 @@
   }
 }
 @media screen and (max-width: 1380px){
+ 
   .main-section .welcome-b.work{
     margin-left: 10%;
   }
@@ -43,6 +47,9 @@
 @media screen and (max-width: 1280px){
   .head-sec .show-galerie{
     right: 0;
+  }
+  .head-sec .show-buy {
+    left: 0;
   }
   .main-nav .nav-list .main-nav-item{
     width: 13%;
@@ -117,6 +124,11 @@
    .head-sec .show-galerie {
     right: 38%;
     top: -35px;
+  }
+  .head-sec .show-buy {
+    left: 39.8%;
+    bottom: 20px;
+    top: inherit;
   }
   .news .fb-content .info{
     width: 100%;
