@@ -12,6 +12,7 @@ $products = $wpdb->get_results( "SELECT *  FROM m_product" );
   <div class="wrap-title hidden">
     <h2 class="news-title main-section-title" ><?php echo $blocks["commande titre 2"]["innerHTML"]; ?></h2>
   </div>
+  <div class="details-modal-overlay"></div>
   <div class="wrap cf">
     
     <div class="heading cf">
