@@ -18,10 +18,10 @@ $products = $wpdb->get_results( "SELECT *  FROM m_product" );
   		<div class="container">
         <input type="hidden" class="product_id" name="id" value="<?php echo $p->id ?>">
   			<img src="<?php echo $p->img?$p->img:get_template_directory_uri()."/assets/shopping.png" ?>" alt="image produit de la maison du boeuf" class="img-fruit" />
-  			<h3><?php echo $p->name ?></h3>
+  			<h3><?php echo stripcslashes($p->name) ?></h3>
   			
   			<p class="scrollbar-1">
-  				<?php echo $p->description ?>
+  				<?php echo stripcslashes($p->description) ?>
   			</p>
   			<div class="properties">
   				<div class="qty">
