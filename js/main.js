@@ -87,7 +87,6 @@
   initCart:function(){
 
     var cart = JSON.parse(sessionStorage.getItem('cart'))||{}
-
     var $wrapp = $('.cartWrap')
     var tog = 0
     var banner = "odd"
@@ -165,6 +164,7 @@
         cart = {}
       }
       var $card = $(evt.target.offsetParent)
+
       var price = $(evt.target.offsetParent).find(".amount").text().replace(',',".")
       var name = $(evt.target.offsetParent).find("h3").text()
       var img = $(evt.target.offsetParent).find(".img-fruit").attr("src")
@@ -183,6 +183,7 @@
       if(cart["p_"+id] !== undefined){
      
         cart["p_"+id].price = parseFloat(cart["p_"+id].price)
+
         cart["p_"+id].price += product.price
         cart["p_"+id].qty += product.qty
         cart["p_"+id].price = cart["p_"+id].price.toFixed(2)
@@ -191,7 +192,7 @@
       }
       else{
         cart["p_"+id]=product
-
+        cart["p_"+id].price = cart["p_"+id].price.toFixed(2)
       }
     
       sessionStorage.setItem('cart', JSON.stringify(cart));
