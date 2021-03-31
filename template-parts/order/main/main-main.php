@@ -4,7 +4,7 @@
   Template Name: main
 */
 global $wpdb;
-$products = $wpdb->get_results( "SELECT *  FROM m_product" );
+$products = $wpdb->get_results( "SELECT *  FROM m_product ORDER BY name ASC" );
 
 ?>
 
