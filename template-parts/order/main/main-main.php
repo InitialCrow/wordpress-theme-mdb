@@ -30,7 +30,7 @@ $products = $wpdb->get_results( "SELECT *  FROM m_product ORDER BY name ASC" );
   					<span class="number">1</span>
   					<i class="fa fa-plus"></i>
   				</div><div class="price">
-  					<h4>Prix / kg</h4>
+  					<h4>Prix / pce</h4>
   					<span class="price-inr">
   						<span class="amount"><?php echo number_format($p->price, 2, ',', ' ')?></span>
   						<i class="fa fa-eur"></i>
